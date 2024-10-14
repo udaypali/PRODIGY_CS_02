@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="eel.js"></script>
+    <title>Image Steganography</title>
+</head>
+
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="assets/logo.png" alt="Logo">
+                </span>
+
+                <div class="text header-text">
+                    <span class="name">Image Setgano</span>
+                    <span class="profession">Student</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                    <i class='bx bx-search-alt-2 icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#" onclick="loadDashboard()">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#" onclick="loadEncryption()">
+                            <i class='bx bx-shield-plus icon'></i>
+                            <span class="text nav-text">Encryption</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#" onclick="loadDecryption()">
+                            <i class='bx bx-shield-minus icon'></i>
+                            <span class="text nav-text">Decryption</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="botton-content">
+                <li class="mode">
+                    <div class="moon-sun">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+
+                    <span class="mode-text text">Dark Mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+
+                <li class="">
+                    <a href="#" id="exit-btn">
+                        <i class='bx bx-message-square-x icon'></i>
+                        <span class="text nav-text">Exit</span>
+                    </a>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <section class="main">
+        <div id="content">
+            <!-- Dashboard content -->
+            <div id="dashboard" class="text">
+                <h1>Welcome to Image Steganography</h1>
+                <p>-By uday</p>
+            </div>
+
+            <!-- Encryption content -->
+            <div id="encryption" class="text", style="display: none;">
+                <div class="container">
+                    <div class="content fade-in">
+                        <h1 class="n">Image Encryption</h1>
+                        <div class="encryption-icon">🔐</div>
+                        <form id="encryptionForm">
+                            <div class="form-group">
+                                <label for="secretMessage">Secret Message:</label>
+                                <textarea id="secretMessage" required rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Encryption Password:</label>
+                                <input type="text" id="password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="encryptionKey">Encryption Key:</label>
+                                <input type="text" id="encryptionKey" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="imageInput">Choose Image to Encrypt:</label>
+                                <input type="file" id="imageInput" accept="image/*" required>
+                            </div>
+                            <button type="submit">Encrypt Image</button>
+                        </form>
+                        <div id="result"></div>
+                        <img id="encryptedImage" alt="Encrypted Image">
+                        <div id="downloadLink"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Decryption content -->
+            <div id="decryption" class="text" style="display: none;">
+                <div class="container">
+                    <div class="content fade-in">
+                        <h1 class="n">Image Decryption</h1>
+                        <div class="encryption-icon">🔓</div>
+                        <form id="decryptionForm">
+                            <div class="form-group">
+                                <label for="encryptedImageInput">Select Encrypted Image:</label>
+                                <input type="file" id="encryptedImageInput" accept="image/*" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="decryptionPassword">Decryption Password:</label>
+                                <input type="text" id="decryptionPassword">
+                            </div>
+                            <div class="form-group">
+                                <label for="decryptionKey">Decryption Key:</label>
+                                <input type="text" id="decryptionKey">
+                            </div>
+                            <button type="submit">Decrypt Image</button>
+                        </form>
+                        <div id="decryptionResult"></div>
+                        <div class="form-group">
+                            <label for="decryptedmessage">Decrytped Message:</label>
+                            <textarea id="decryptedmessage" required rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

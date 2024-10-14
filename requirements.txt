@@ -1,0 +1,4 @@
+eel
+pycryptodome
+pillow
+crypto-js
