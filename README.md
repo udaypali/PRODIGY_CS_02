@@ -87,3 +87,5 @@ The application depends on the following libraries:
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+**Disclaimer**: The author is not responsible for any misuse of this application. Use it at your own risk.
